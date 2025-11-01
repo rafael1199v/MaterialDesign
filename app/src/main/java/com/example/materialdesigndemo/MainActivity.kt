@@ -11,9 +11,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
@@ -55,6 +57,10 @@ class MainActivity : ComponentActivity() {
                         )
 
                         NavigationBarExample(
+                            modifier = Modifier
+                        )
+
+                        ScrollListExample(
                             modifier = Modifier
                         )
                     }
@@ -132,4 +138,24 @@ fun NavigationBarExample(
     }
 }
 
+@Composable
+fun ScrollListExample(
+    modifier: Modifier = Modifier
+) {
+    LazyColumn(
+        modifier = modifier,
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        items(50) { index ->
+            Button(
+                onClick = {},
+            ) {
+                Text(
+                    text = "Button"
+                )
+            }
+        }
+    }
+}
 
