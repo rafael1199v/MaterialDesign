@@ -27,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.materialdesigndemo.ui.theme.MaterialDesignDemoTheme
@@ -114,7 +115,10 @@ fun NavigationBarExample(
         NavigationBarItem(
             selected = true,
             icon = {
-                Icon(imageVector = Icons.Default.Home, contentDescription = "Home")
+                Icon(
+                    painter = painterResource(R.drawable.logojs),
+                    contentDescription = stringResource(id = R.string.app_name)
+                )
             },
             label = {
                 Text(text = "Home")
