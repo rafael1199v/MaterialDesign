@@ -38,9 +38,23 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MaterialDesignDemoTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    topBar = {
+                        Text(
+                            text = "TopBar",
+                            modifier = Modifier.padding(top = 20.dp)
+                        )
+                    },
+                    bottomBar = {
+                        NavigationBarExample(
+                            modifier = Modifier
+                        )
+                    }
+                ) { innerPadding ->
                     Column(
-                        modifier = Modifier.fillMaxSize().padding(innerPadding),
+                        modifier = Modifier.fillMaxSize()
+                            .padding(innerPadding),
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
@@ -55,10 +69,7 @@ class MainActivity : ComponentActivity() {
                             content = "Content",
                             modifier = Modifier.width(100.dp)
                                 .height(100.dp)
-                        )
-
-                        NavigationBarExample(
-                            modifier = Modifier
+                                .padding(vertical = 10.dp)
                         )
 
                         ScrollListExample(
